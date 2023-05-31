@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:insight_report/screen/dashboard/components/rate_and_average.dart';
+import 'package:insight_report/screen/dashboard/components/website_purchase_chart.dart';
 
 import 'components/cost_website_chart.dart';
 import 'components/engagement_rate_chart.dart';
@@ -10,103 +10,29 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-        title: const Text("Home", style: TextStyle(fontSize: 18)),
-        centerTitle: true,
-      ),
-      drawer: const Drawer(),
-      body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 16),
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-        children: [
-          EngagementRateChart(),
-          const SizedBox(height: 32),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    _boxUpDownAnalytics(
-                      title: "Click Through Rate",
-                      amount: 5237,
-                      profitPercent: 43.22,
-                      isProfit: true,
-                    ),
-                    const SizedBox(width: 16),
-                    _boxUpDownAnalytics(
-                      title: "Bounce Rate",
-                      amount: 45393,
-                      profitPercent: -325.4,
-                      isProfit: false,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    _boxUpDownAnalytics(
-                      title: "Engagement Rate",
-                      amount: 675,
-                      profitPercent: 45.62,
-                      isProfit: true,
-                    ),
-                    const SizedBox(width: 16),
-                    _boxUpDownAnalytics(
-                      title: "Avg. Watch Time",
-                      amount: 213,
-                      profitPercent: -132.38,
-                      isProfit: false,
-                    ),
-                  ],
-                ),
-              ],
-            ),
+    return ListView(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+      children: const [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("Welcome Back!", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+              Text("Hi, William Vengeance", style: TextStyle(color: Colors.grey, fontSize: 13)),
+            ],
           ),
-          SizedBox(height: 24),
-          CostPerWebsiteChart()
-        ],
-      ),
-    );
-  }
-
-  Widget _boxUpDownAnalytics(
-      {required String title, required num amount, required num profitPercent, required bool isProfit}) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(4),
         ),
-        child: Column(
-          children: [
-            Text(
-              title,
-              style: const TextStyle(color: Colors.grey, fontSize: 13),
-            ),
-            Text(
-              NumberFormat.currency(symbol: '', decimalDigits: 0).format(amount),
-              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  isProfit ? Icons.arrow_drop_up : Icons.arrow_drop_down,
-                  color: isProfit ? Color(0xFF40b58e) : Colors.red,
-                ),
-                Text(
-                  "${isProfit ? '+' : ''}${NumberFormat.currency(symbol: '').format(profitPercent)}%",
-                  style: TextStyle(color: isProfit ? const Color(0xFF40b58e) : Colors.red, fontSize: 13),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+        SizedBox(height: 24),
+        EngagementRateChart(),
+        SizedBox(height: 32),
+        RateAndAverage(),
+        SizedBox(height: 24),
+        CostPerWebsiteChart(),
+        SizedBox(height: 24),
+        WebsitePurchaseChart(),
+      ],
     );
   }
 }
