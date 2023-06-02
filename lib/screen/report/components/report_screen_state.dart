@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../main/screen_state.dart';
-import 'report_screen.dart';
+import '../../main/screen_state.dart';
+import '../report_screen.dart';
 
 class ReportScreenState extends ScreenState {
   @override

@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:insight_report/screen/main/screen_state.dart';
 
-import '../dashboard/dashboard_screen_state.dart';
+import '../dashboard/components/dashboard_screen_state.dart';
 import '../notification/notification_screen_state.dart';
 import '../profile/profile_screen_state.dart';
-import '../report/report_screen_state.dart';
+import '../report/components/report_screen_state.dart';
 
 class MainCubit extends Cubit<ScreenState> {
   MainCubit() : super(DashboardScreenState());

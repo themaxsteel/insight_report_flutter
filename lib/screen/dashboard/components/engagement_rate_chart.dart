@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insight_report/utils/app_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -86,29 +87,42 @@ class _EngagementRateChartState extends State<EngagementRateChart> {
     );
   }
 
-  List<SplineSeries<_ChartData, DateTime>> _getDefaultLineSeries() {
-    return <SplineSeries<_ChartData, DateTime>>[
-      SplineSeries<_ChartData, DateTime>(
+  List<SplineAreaSeries<_ChartData, DateTime>> _getDefaultLineSeries() {
+    return <SplineAreaSeries<_ChartData, DateTime>>[
+      SplineAreaSeries<_ChartData, DateTime>(
         splineType: SplineType.natural,
-        color: Colors.orange[100],
+        color: Colors.transparent,
+        borderColor: Colors.orange[100],
+        enableTooltip: false,
+        borderWidth: 2,
         animationDuration: 500,
         dataSource: chartData,
-        width: 3,
         name: 'England',
         xValueMapper: (_ChartData sales, _) => sales.x,
         yValueMapper: (_ChartData sales, _) => sales.y2,
         markerSettings: const MarkerSettings(isVisible: false),
       ),
-      SplineSeries<_ChartData, DateTime>(
+      SplineAreaSeries<_ChartData, DateTime>(
         splineType: SplineType.natural,
-        color: const Color(0xFF40b58e),
+        borderColor: AppTheme.primaryColor,
+        borderWidth: 2,
+        gradient: LinearGradient(
+          colors: <Color>[
+            Colors.transparent,
+            AppTheme.primaryColor.withOpacity(0.1),
+            AppTheme.primaryColor.withOpacity(0.35)
+          ],
+          stops: const <double>[0.0, 0.4, 1.0],
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+        ),
+        // color: const Color(0xFF40b58e),
         animationDuration: 1000,
         dataSource: chartData,
         xValueMapper: (_ChartData sales, _) => sales.x,
         yValueMapper: (_ChartData sales, _) => sales.y,
-        width: 3,
-        name: 'Germany',
-        markerSettings: const MarkerSettings(isVisible: true, borderWidth: 4),
+        name: 'Rate',
+        markerSettings: const MarkerSettings(isVisible: true, borderWidth: 4, borderColor: AppTheme.primaryColor),
       ),
     ];
   }
