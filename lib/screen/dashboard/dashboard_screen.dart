@@ -20,7 +20,7 @@ class DashboardScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Welcome Back!", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
-              Text("Hi, William Vengeance", style: TextStyle(color: Colors.grey, fontSize: 13)),
+              Text("Hi, William Vengeance!", style: TextStyle(color: Colors.grey, fontSize: 13)),
             ],
           ),
         ),

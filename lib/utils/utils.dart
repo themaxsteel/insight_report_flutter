@@ -7,14 +7,14 @@ class Utils {
         number = number.abs();
         return "(${NumberFormat.currency(symbol: '', decimalDigits: decimalDigits).format(number)})";
       }
-      return NumberFormat.currency(symbol: '', decimalDigits: decimalDigits).format(number);
+      return NumberFormat.currency(symbol: '', decimalDigits: decimalDigits, locale: "ID_id").format(number);
     } catch (e) {
       return 'error';
     }
   }
 
   static String compactCurrency(num number, {int? decimalDigits}) {
-    return NumberFormat.compactCurrency(symbol: '', decimalDigits: decimalDigits).format(number);
+    return NumberFormat.compactCurrency(symbol: '', decimalDigits: decimalDigits, locale: "ID_id").format(number);
   }
 
   static String clock24h(DateTime dateTime) {

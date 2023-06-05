@@ -4,6 +4,7 @@ class AppTheme {
   static const Color primaryColor = Color(0xFF40b58e);
 
   static final lightTheme = ThemeData(
+    scaffoldBackgroundColor: Colors.grey[100],
     useMaterial3: true,
     colorSchemeSeed: const Color(0xFF40b58e),
     floatingActionButtonTheme: FloatingActionButtonThemeData(

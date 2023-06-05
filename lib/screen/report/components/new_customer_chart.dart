@@ -12,9 +12,24 @@ class NewCustomerChart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "138 New Customers",
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              "138 New Customers",
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+            ),
+            Material(
+              color: Colors.grey[100],
+              child: InkWell(
+                onTap: () {},
+                child: const Text(
+                  "Show Details",
+                  style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 8),
         Container(
@@ -67,7 +82,7 @@ class NewCustomerChart extends StatelessWidget {
         color: AppTheme.primaryColor,
         xValueMapper: (ChartSampleData sales, _) => sales.x as String,
         yValueMapper: (ChartSampleData sales, _) => sales.thirdSeriesYValue,
-        name: 'PMS',
+        name: 'Cloud PMS',
       ),
       ColumnSeries<ChartSampleData, String>(
         animationDuration: 500,

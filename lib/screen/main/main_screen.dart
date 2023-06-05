@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:insight_report/screen/main/main_cubit.dart';
 import 'package:insight_report/screen/main/screen_state.dart';
+import 'package:insight_report/screen/master_data/masterdata_screen.dart';
+import 'package:insight_report/utils/navigator.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -41,8 +43,8 @@ class MainScreen extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add, color: Colors.white),
+          onPressed: () => navigateTo(context, const MasterDataScreen()),
+          child: const Icon(Icons.list_alt, color: Colors.white),
         ),
         body: state.getBody(context),
       );
