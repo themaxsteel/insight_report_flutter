@@ -5,7 +5,7 @@ import 'notification_screen.dart';
 
 class NotificationScreenState extends ScreenState {
   @override
-  PreferredSizeWidget? getAppBar(BuildContext context) => AppBar(title: const Text("Notification"));
+  PreferredSizeWidget? getAppBar(BuildContext context) => AppBar(title: const Text("Insight"));
 
   @override
   Widget getBody(BuildContext context) => const NotificationScreen();

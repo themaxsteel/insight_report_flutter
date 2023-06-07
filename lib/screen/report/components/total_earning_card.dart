@@ -12,7 +12,7 @@ class TotalEarningCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 8),
+      padding: const EdgeInsets.only(left: 12),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -29,7 +29,7 @@ class TotalEarningCard extends StatelessWidget {
               ),
               Text(
                 "Rp. ${Utils.convertMoney(923724.23)}",
-                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
+                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 22),
               ),
               Text(
                 "Updated today at ${Utils.clock24h(DateTime.now())}",

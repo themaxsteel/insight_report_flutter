@@ -14,7 +14,14 @@ class MainScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: state.getAppBar(context),
-        drawer: const Drawer(),
+        drawer: const Drawer(
+          child: DrawerHeader(
+            curve: Curves.bounceIn,
+            child: Text(
+              "Insight Report",
+            ),
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: state.getIndex,
           items: [
@@ -31,7 +38,7 @@ class MainScreen extends StatelessWidget {
               label: "",
             ),
             BottomNavigationBarItem(
-              icon: Icon(state.getIndex == 3 ? Icons.notifications : Icons.notifications_outlined),
+              icon: Icon(state.getIndex == 3 ? Icons.insights : Icons.insights_outlined),
               label: "",
             ),
             BottomNavigationBarItem(
