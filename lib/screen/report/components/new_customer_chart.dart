@@ -37,7 +37,7 @@ class NewCustomerChart extends StatelessWidget {
           padding: const EdgeInsets.only(top: 16),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(8),
           ),
           child: SfCartesianChart(
             plotAreaBorderWidth: 0,
@@ -75,6 +75,7 @@ class NewCustomerChart extends StatelessWidget {
     ];
     return <ColumnSeries<ChartSampleData, String>>[
       ColumnSeries<ChartSampleData, String>(
+        legendIconType: LegendIconType.rectangle,
         animationDuration: 500,
         dataSource: chartData,
         width: 0.8,
@@ -85,6 +86,7 @@ class NewCustomerChart extends StatelessWidget {
         name: 'Cloud PMS',
       ),
       ColumnSeries<ChartSampleData, String>(
+        legendIconType: LegendIconType.rectangle,
         animationDuration: 500,
         width: 0.8,
         spacing: 0.3,
@@ -95,6 +97,7 @@ class NewCustomerChart extends StatelessWidget {
         name: 'OrderBil',
       ),
       ColumnSeries<ChartSampleData, String>(
+        legendIconType: LegendIconType.rectangle,
         animationDuration: 500,
         dataSource: chartData,
         width: 0.8,

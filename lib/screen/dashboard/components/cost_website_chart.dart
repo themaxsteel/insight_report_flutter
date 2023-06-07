@@ -50,9 +50,9 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
             "Cost per Website Purchase",
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.grey[800]),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Container(
-            padding: EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.only(top: 8),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
@@ -77,9 +77,9 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
               tooltipBehavior: TooltipBehavior(
                 enable: true,
                 builder: (data, point, series, pointIndex, seriesIndex) {
-                  _ChartData _data = data;
+                  _ChartData item = data;
                   return Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(4),
@@ -87,11 +87,11 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(DateFormat("dd MMM").format(_data.x)),
+                        Text(DateFormat("dd MMM").format(item.x)),
                         Container(height: 0.6, width: 50, color: Colors.black),
                         Text(
-                          NumberFormat.currency(symbol: '\$').format(_data.y),
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          NumberFormat.currency(symbol: '\$').format(item.y),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -111,11 +111,15 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
         dataSource: chartData,
         xValueMapper: (_ChartData sales, _) => sales.x,
         yValueMapper: (_ChartData sales, _) => sales.y,
-        borderColor: Color(0xFF40b58e),
+        borderColor: const Color(0xFF40b58e),
         animationDelay: 500,
         borderWidth: 2,
         gradient: LinearGradient(
-          colors: <Color>[Colors.transparent, Color(0xFF40b58e).withOpacity(0.1), Color(0xFF40b58e).withOpacity(0.5)],
+          colors: <Color>[
+            Colors.transparent,
+            const Color(0xFF40b58e).withOpacity(0.1),
+            const Color(0xFF40b58e).withOpacity(0.5)
+          ],
           stops: const <double>[0.0, 0.4, 1.0],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,

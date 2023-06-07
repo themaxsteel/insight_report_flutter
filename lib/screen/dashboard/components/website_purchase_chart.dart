@@ -57,8 +57,8 @@ class WebsitePurchaseChart extends StatelessWidget {
                         Text(DateFormat("dd MMM").format(_data.x)),
                         Container(height: 0.6, width: 50, color: Colors.black),
                         Text(
-                          data.y.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          "${data.y.toString()} Websites",
+                          style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),

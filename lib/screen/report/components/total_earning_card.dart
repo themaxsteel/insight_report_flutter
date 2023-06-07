@@ -15,7 +15,7 @@ class TotalEarningCard extends StatelessWidget {
       padding: const EdgeInsets.only(left: 8),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +28,7 @@ class TotalEarningCard extends StatelessWidget {
                 style: TextStyle(color: Colors.grey),
               ),
               Text(
-                "\$${Utils.convertMoney(923724.23)}",
+                "Rp. ${Utils.convertMoney(923724.23)}",
                 style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
               ),
               Text(
@@ -59,7 +59,7 @@ class TotalEarningCard extends StatelessWidget {
                       ),
                     ),
                   ],
-                  pointers: [
+                  pointers: const [
                     RangePointer(
                       value: 75,
                       sizeUnit: GaugeSizeUnit.factor,
