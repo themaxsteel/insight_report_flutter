@@ -7,7 +7,7 @@ class DashboardScreenState extends ScreenState {
   PreferredSizeWidget? getAppBar(BuildContext context) => AppBar(title: const Text("Dashboard "));
 
   @override
-  Widget getBody(BuildContext context) => DashboardScreen();
+  Widget getBody(BuildContext context) => const DashboardScreen();
 
   @override
   int get getIndex => 0;

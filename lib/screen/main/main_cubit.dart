@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:insight_report/screen/main/screen_state.dart';
 
 import '../dashboard/components/dashboard_screen_state.dart';
-import '../notification/notification_screen_state.dart';
+import '../insight/insight_screen_state.dart';
 import '../profile/profile_screen_state.dart';
 import '../report/components/report_screen_state.dart';
 
@@ -21,14 +23,14 @@ class MainCubit extends Cubit<ScreenState> {
       case 2:
         break;
       case 3:
-        screenState = NotificationScreenState();
+        screenState = InsightScreenState();
         break;
       case 4:
         screenState = ProfileScreenState();
         break;
     }
     if (screenState != null && state != screenState) {
-      print("change screen to: $screenState");
+      log("change screen to: $screenState");
       emit(screenState);
     }
   }

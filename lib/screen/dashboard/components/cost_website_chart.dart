@@ -88,7 +88,9 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(DateFormat("dd MMM").format(item.x)),
+                        const SizedBox(height: 2),
                         Container(height: 0.6, width: 50, color: Colors.black),
+                        const SizedBox(height: 2),
                         Text(
                           NumberFormat.currency(symbol: '\$').format(item.y),
                           style: const TextStyle(fontWeight: FontWeight.bold),

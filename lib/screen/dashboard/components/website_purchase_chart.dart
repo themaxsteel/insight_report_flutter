@@ -8,7 +8,7 @@ class WebsitePurchaseChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -16,9 +16,9 @@ class WebsitePurchaseChart extends StatelessWidget {
             "Website Purchase",
             style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16, color: Colors.grey[800]),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Container(
-            padding: EdgeInsets.only(top: 8),
+            padding: const EdgeInsets.only(top: 8),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
@@ -44,9 +44,9 @@ class WebsitePurchaseChart extends StatelessWidget {
               tooltipBehavior: TooltipBehavior(
                 enable: true,
                 builder: (data, point, series, pointIndex, seriesIndex) {
-                  _ChartData _data = data;
+                  _ChartData item = data;
                   return Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(4),
@@ -54,11 +54,13 @@ class WebsitePurchaseChart extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(DateFormat("dd MMM").format(_data.x)),
+                        Text(DateFormat("dd MMM").format(item.x)),
+                        const SizedBox(height: 2),
                         Container(height: 0.6, width: 50, color: Colors.black),
+                        const SizedBox(height: 2),
                         Text(
                           "${data.y.toString()} Websites",
-                          style: TextStyle(fontWeight: FontWeight.w500),
+                          style: const TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),

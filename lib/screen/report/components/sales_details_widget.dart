@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insight_report/utils/app_theme.dart';
 import 'package:insight_report/utils/utils.dart';
 
 class SalesDetailsWidget extends StatelessWidget {
@@ -19,13 +20,13 @@ class SalesDetailsWidget extends StatelessWidget {
         Row(
           children: [
             _salesDetailsItem(
-              icon: Icon(Icons.person, color: Colors.grey[400], size: 26),
+              icon: const Icon(Icons.person, color: AppTheme.primaryColor, size: 26),
               title: Utils.compactCurrency(1223),
               label: "Total Customers",
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             _salesDetailsItem(
-              icon: Icon(Icons.monetization_on, color: Colors.grey[400], size: 26),
+              icon: const Icon(Icons.monetization_on, color: AppTheme.primaryColor, size: 26),
               title: Utils.compactCurrency(1023547),
               label: "Total Subscription",
             ),
@@ -64,7 +65,7 @@ class SalesDetailsWidget extends StatelessWidget {
             Text(
               label,
               // "Total Customers",
-              style: TextStyle(fontSize: 12, color: Colors.grey),
+              style: const TextStyle(fontSize: 12, color: Colors.grey),
             ),
           ],
         ),
