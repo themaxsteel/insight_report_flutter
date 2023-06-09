@@ -47,9 +47,9 @@ class InsightScreen extends StatelessWidget {
                 ),
                 primaryYAxis: NumericAxis(
                   numberFormat: NumberFormat.compactCurrency(locale: "ID_id", symbol: ''),
-                  maximum: 7000000,
+                  maximum: 25000000,
                   minimum: 0,
-                  interval: 1000000,
+                  interval: 5000000,
                   labelStyle: const TextStyle(fontWeight: FontWeight.bold),
                   axisLine: const AxisLine(width: 0),
                   majorTickLines: const MajorTickLines(size: 0),
@@ -123,10 +123,12 @@ class InsightScreen extends StatelessWidget {
 
   List<ColumnSeries<ChartSampleData, String>> _getSeries() {
     List<ChartSampleData> chartData = [
-      ChartSampleData(x: 'Minggu-1', y: 2423500),
-      ChartSampleData(x: 'Minggu-2', y: 3523500),
-      ChartSampleData(x: 'Minggu-3', y: 2000000),
-      ChartSampleData(x: 'Minggu-4', y: 6053000),
+      ChartSampleData(x: 'Januari', y: 22423500),
+      ChartSampleData(x: 'Februari', y: 13523500),
+      ChartSampleData(x: 'Maret', y: 14800000),
+      ChartSampleData(x: 'April', y: 19053000),
+      ChartSampleData(x: 'Mei', y: 17053000),
+      ChartSampleData(x: 'Juni', y: 14053000),
     ];
     return <ColumnSeries<ChartSampleData, String>>[
       ColumnSeries<ChartSampleData, String>(

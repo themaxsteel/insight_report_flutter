@@ -34,7 +34,7 @@ class _EngagementRateChartState extends State<EngagementRateChart> {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.primaryColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Column(
@@ -47,39 +47,44 @@ class _EngagementRateChartState extends State<EngagementRateChart> {
               children: [
                 Text(
                   "Engagement Rate (24% vs 27-30 July)",
-                  style: TextStyle(color: Colors.grey, fontSize: 13),
+                  style: TextStyle(color: Colors.white, fontSize: 13),
                 ),
                 Text(
                   "19,324.24",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 24, color: Colors.white),
                 ),
-                Text(
-                  "+21,25%",
-                  style: TextStyle(color: Color(0xFF40b58e), fontSize: 13),
-                ),
+                // Text(
+                //   "+21,25%",
+                //   style: TextStyle(color: Colors.white, fontSize: 13),
+                // ),
               ],
             ),
           ),
           SizedBox(
             height: 250,
-            child: SfCartesianChart(
-              series: _getDefaultLineSeries(),
-              primaryXAxis: DateTimeAxis(
-                dateFormat: DateFormat("EEE"),
-                edgeLabelPlacement: EdgeLabelPlacement.shift,
-                interval: 1,
-                majorGridLines: const MajorGridLines(width: 0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: SfCartesianChart(
+                backgroundColor: AppTheme.primaryColor,
+                series: _getDefaultLineSeries(),
+                primaryXAxis: DateTimeAxis(
+                  dateFormat: DateFormat("EEE"),
+                  edgeLabelPlacement: EdgeLabelPlacement.shift,
+                  interval: 1,
+                  majorGridLines: const MajorGridLines(width: 0),
+                  labelStyle: const TextStyle(color: Colors.white),
+                ),
+                primaryYAxis: NumericAxis(
+                  numberFormat: NumberFormat.compactCurrency(decimalDigits: 0, symbol: ''),
+                  maximum: 20000,
+                  minimum: 0,
+                  labelStyle: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  edgeLabelPlacement: EdgeLabelPlacement.shift,
+                  axisLine: const AxisLine(width: 0),
+                  majorTickLines: const MajorTickLines(color: Colors.transparent),
+                ),
+                tooltipBehavior: TooltipBehavior(enable: true),
               ),
-              primaryYAxis: NumericAxis(
-                numberFormat: NumberFormat.compactCurrency(decimalDigits: 0, symbol: ''),
-                maximum: 20000,
-                minimum: 0,
-                labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-                edgeLabelPlacement: EdgeLabelPlacement.shift,
-                axisLine: const AxisLine(width: 0),
-                majorTickLines: const MajorTickLines(color: Colors.transparent),
-              ),
-              tooltipBehavior: TooltipBehavior(enable: true),
             ),
           ),
         ],
@@ -104,13 +109,13 @@ class _EngagementRateChartState extends State<EngagementRateChart> {
       ),
       SplineAreaSeries<_ChartData, DateTime>(
         splineType: SplineType.natural,
-        borderColor: AppTheme.primaryColor,
+        borderColor: Colors.white,
         borderWidth: 2,
         gradient: LinearGradient(
           colors: <Color>[
             Colors.transparent,
-            AppTheme.primaryColor.withOpacity(0.1),
-            AppTheme.primaryColor.withOpacity(0.35)
+            Colors.white.withOpacity(0.15),
+            Colors.white.withOpacity(0.45),
           ],
           stops: const <double>[0.0, 0.4, 1.0],
           begin: Alignment.bottomCenter,
@@ -122,7 +127,12 @@ class _EngagementRateChartState extends State<EngagementRateChart> {
         xValueMapper: (_ChartData sales, _) => sales.x,
         yValueMapper: (_ChartData sales, _) => sales.y,
         name: 'Rate',
-        markerSettings: const MarkerSettings(isVisible: true, borderWidth: 4, borderColor: AppTheme.primaryColor),
+        markerSettings: const MarkerSettings(
+          isVisible: true,
+          borderWidth: 3,
+          borderColor: Colors.white,
+          color: AppTheme.primaryColor,
+        ),
       ),
     ];
   }

@@ -40,7 +40,7 @@ class SellingReportChart extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 16),
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppTheme.primaryColor,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Column(
@@ -127,9 +127,9 @@ class SellingReportChart extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13),
+              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 13, color: Colors.white),
             ),
-            Text(subtitle, style: const TextStyle(fontSize: 12, color: Colors.grey)),
+            Text(subtitle, style: const TextStyle(fontSize: 12, color: Colors.white)),
           ],
         ),
       ],
