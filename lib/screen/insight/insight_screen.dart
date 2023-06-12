@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:insight_report/screen_component/custom_dropdown_button.dart';
+import 'package:insight_report/widgets/custom_dropdown_button.dart';
 import 'package:insight_report/utils/app_theme.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';

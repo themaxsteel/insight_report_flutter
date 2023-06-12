@@ -54,7 +54,7 @@ class WebsitePurchaseChart extends StatelessWidget {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(DateFormat("dd MMM").format(item.x)),
+                        Text(DateFormat("dd MMM").format(item.x), style: TextStyle(fontSize: 12)),
                         const SizedBox(height: 2),
                         Container(height: 0.6, width: 50, color: Colors.black),
                         const SizedBox(height: 2),

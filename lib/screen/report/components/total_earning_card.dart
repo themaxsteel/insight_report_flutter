@@ -29,7 +29,7 @@ class TotalEarningCard extends StatelessWidget {
               ),
               Text(
                 "Rp. ${Utils.convertMoney(923724.23)}",
-                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 22),
+                style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
               ),
               Text(
                 "Updated today at ${Utils.clock24h(DateTime.now())}",

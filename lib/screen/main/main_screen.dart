@@ -14,14 +14,14 @@ class MainScreen extends StatelessWidget {
       return Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: state.getAppBar(context),
-        drawer: const Drawer(
-          child: DrawerHeader(
-            curve: Curves.bounceIn,
-            child: Text(
-              "Insight Report",
-            ),
-          ),
-        ),
+        // drawer: const Drawer(
+        //   child: DrawerHeader(
+        //     curve: Curves.bounceIn,
+        //     child: Text(
+        //       "Insight Report",
+        //     ),
+        //   ),
+        // ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: state.getIndex,
           items: [

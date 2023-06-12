@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../utils/utils.dart';
+
 class CostPerWebsiteChart extends StatefulWidget {
   const CostPerWebsiteChart({super.key});
 
@@ -11,32 +13,32 @@ class CostPerWebsiteChart extends StatefulWidget {
 
 class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
   List<_ChartData> chartData = [
-    _ChartData(DateTime(2023, 1, 1), 14),
-    _ChartData(DateTime(2023, 1, 5), 16.42),
-    _ChartData(DateTime(2023, 1, 13), 18.20),
-    _ChartData(DateTime(2023, 1, 20), 14.80),
-    _ChartData(DateTime(2023, 1, 28), 18.20),
-    _ChartData(DateTime(2023, 2, 1), 8.23),
-    _ChartData(DateTime(2023, 2, 10), 14.80),
-    _ChartData(DateTime(2023, 2, 13), 18.20),
-    _ChartData(DateTime(2023, 2, 19), 15.98),
-    _ChartData(DateTime(2023, 2, 23), 12.18),
-    _ChartData(DateTime(2023, 2, 25), 13.68),
-    _ChartData(DateTime(2023, 3, 1), 5.21),
-    _ChartData(DateTime(2023, 3, 5), 16.42),
-    _ChartData(DateTime(2023, 3, 12), 5.29),
-    _ChartData(DateTime(2023, 3, 23), 12.18),
-    _ChartData(DateTime(2023, 4, 10), 14.80),
-    _ChartData(DateTime(2023, 4, 17), 10.80),
-    _ChartData(DateTime(2023, 4, 28), 17.80),
-    _ChartData(DateTime(2023, 5, 7), 10),
-    _ChartData(DateTime(2023, 5, 13), 18.20),
-    _ChartData(DateTime(2023, 5, 23), 5.29),
-    _ChartData(DateTime(2023, 6, 1), 7.04),
-    _ChartData(DateTime(2023, 6, 8), 8.23),
-    _ChartData(DateTime(2023, 6, 12), 5.29),
-    _ChartData(DateTime(2023, 6, 23), 12.20),
-    _ChartData(DateTime(2023, 7, 1), 14.20),
+    _ChartData(DateTime(2023, 1, 1), 140000),
+    _ChartData(DateTime(2023, 1, 5), 160000.42),
+    _ChartData(DateTime(2023, 1, 13), 180000),
+    _ChartData(DateTime(2023, 1, 20), 140000),
+    _ChartData(DateTime(2023, 1, 28), 180000),
+    _ChartData(DateTime(2023, 2, 1), 80000),
+    _ChartData(DateTime(2023, 2, 10), 140000),
+    _ChartData(DateTime(2023, 2, 13), 180000),
+    _ChartData(DateTime(2023, 2, 19), 150000),
+    _ChartData(DateTime(2023, 2, 23), 120000),
+    _ChartData(DateTime(2023, 2, 25), 130000),
+    _ChartData(DateTime(2023, 3, 1), 50000),
+    _ChartData(DateTime(2023, 3, 5), 160000),
+    _ChartData(DateTime(2023, 3, 12), 50000),
+    _ChartData(DateTime(2023, 3, 23), 120000),
+    _ChartData(DateTime(2023, 4, 10), 140000),
+    _ChartData(DateTime(2023, 4, 17), 100000),
+    _ChartData(DateTime(2023, 4, 28), 170000),
+    _ChartData(DateTime(2023, 5, 7), 100000),
+    _ChartData(DateTime(2023, 5, 13), 180000),
+    _ChartData(DateTime(2023, 5, 23), 50000),
+    _ChartData(DateTime(2023, 6, 1), 70000),
+    _ChartData(DateTime(2023, 6, 8), 80000),
+    _ChartData(DateTime(2023, 6, 12), 50000),
+    _ChartData(DateTime(2023, 6, 23), 120000),
+    _ChartData(DateTime(2023, 7, 1), 140000),
   ];
 
   @override
@@ -66,8 +68,9 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
                 majorGridLines: const MajorGridLines(width: 0),
               ),
               primaryYAxis: NumericAxis(
-                numberFormat: NumberFormat.compactCurrency(decimalDigits: 2, symbol: '\$'),
-                maximum: 20,
+                numberFormat: NumberFormat.compactCurrency(decimalDigits: 0, symbol: '', locale: "ID_id"),
+                maximum: 200000,
+                interval: 40000,
                 minimum: 0,
                 edgeLabelPlacement: EdgeLabelPlacement.shift,
                 axisLine: const AxisLine(width: 0),
@@ -87,12 +90,12 @@ class _CostPerWebsiteChartState extends State<CostPerWebsiteChart> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(DateFormat("dd MMM").format(item.x)),
+                        Text(DateFormat("dd MMM").format(item.x), style: TextStyle(fontSize: 12)),
                         const SizedBox(height: 2),
                         Container(height: 0.6, width: 50, color: Colors.black),
                         const SizedBox(height: 2),
                         Text(
-                          NumberFormat.currency(symbol: '\$').format(item.y),
+                          "Rp. ${Utils.convertMoney(item.y)}",
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],

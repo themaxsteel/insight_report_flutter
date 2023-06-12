@@ -119,7 +119,7 @@ class RecentActivityWidget extends StatelessWidget {
                 activity,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(color: Colors.grey, fontSize: 13, fontWeight: FontWeight.w500),
+                style: const TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w500),
               ),
             ],
           ),

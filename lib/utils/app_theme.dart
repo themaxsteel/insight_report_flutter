@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
   static const Color primaryColor = Color(0xFF40b58e);
@@ -25,10 +26,12 @@ class AppTheme {
       showUnselectedLabels: false,
       type: BottomNavigationBarType.fixed,
     ),
+    fontFamily: GoogleFonts.poppins().fontFamily,
   );
 
   static final darkTheme = ThemeData(
     useMaterial3: false,
     colorSchemeSeed: const Color(0xFF000000),
+    fontFamily: GoogleFonts.poppins().fontFamily,
   );
 }
