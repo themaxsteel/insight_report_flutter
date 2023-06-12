@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../main/screen_state.dart';
-import 'insight_screen.dart';
+import '../../main/screen_state.dart';
+import '../insight_screen.dart';
 
 class InsightScreenState extends ScreenState {
   @override

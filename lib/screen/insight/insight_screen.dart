@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:insight_report/widgets/custom_button.dart';
 import 'package:insight_report/widgets/custom_dropdown_button.dart';
 import 'package:insight_report/utils/app_theme.dart';
+import 'package:insight_report/widgets/custom_outline_button.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -62,59 +64,24 @@ class InsightScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 24),
-        Material(
-          color: AppTheme.primaryColor,
-          borderRadius: BorderRadius.circular(20),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(20),
-            onTap: () {},
-            child: const Padding(
-              padding: EdgeInsets.symmetric(vertical: 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.file_open_outlined,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    "Download Report",
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),
-                  ),
-                ],
-              ),
-            ),
+        CustomButton(
+          onTap: () {},
+          text: "Download Report",
+          icon: const Icon(
+            Icons.file_open_outlined,
+            size: 18,
+            color: Colors.white,
           ),
         ),
         const SizedBox(height: 16),
-        Material(
-          borderRadius: BorderRadius.circular(20),
-          child: InkWell(
-            borderRadius: BorderRadius.circular(20),
-            onTap: () {},
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppTheme.primaryColor),
-              ),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.bookmark_outline,
-                    color: AppTheme.primaryColor,
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    "Add to favorite",
-                    style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.w500, fontSize: 16),
-                  ),
-                ],
-              ),
-            ),
+        CustomOutlineButton(
+          icon: const Icon(
+            Icons.bookmark_outline,
+            color: AppTheme.primaryColor,
+            size: 18,
           ),
+          text: "Add to Favorite",
+          onTap: () {},
         ),
         const SizedBox(height: 16),
       ],

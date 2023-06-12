@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:insight_report/screen/main/screen_state.dart';
 
 import '../dashboard/components/dashboard_screen_state.dart';
-import '../insight/insight_screen_state.dart';
+import '../insight/components/insight_screen_state.dart';
 import '../profile/profile_screen_state.dart';
 import '../report/components/report_screen_state.dart';
 
