@@ -1,10 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:insight_report/utils/app_theme.dart';
-import 'package:insight_report/widgets/custom_dropdown_button.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../utils/utils.dart';
+import '../../../widgets/custom_chart_filter.dart';
 
 class RevenueChart extends StatelessWidget {
   const RevenueChart({super.key});
@@ -17,13 +18,17 @@ class RevenueChart extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("Revenue", style: TextStyle(fontSize: 16)),
-            _RevenueFilter(),
+            const Text("Revenue", style: TextStyle(fontSize: 16)),
+            CustomChartFilter(
+              onChanged: (value) {
+                log("Revenue filter $value");
+              },
+            ),
           ],
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         Container(
-          padding: EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(8),
@@ -59,13 +64,14 @@ class RevenueChart extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(DateFormat("HH:mm").format(item.x), style: TextStyle(fontSize: 12, color: Colors.white)),
+                      Text(DateFormat("HH:mm a").format(item.x),
+                          style: const TextStyle(fontSize: 12, color: Colors.white)),
                       const SizedBox(height: 2),
-                      Container(height: 0.6, width: 50, color: Colors.white),
+                      Container(height: 0.5, width: 50, color: Colors.white),
                       const SizedBox(height: 2),
                       Text(
                         "Rp. ${Utils.convertMoney(data.y)}",
-                        style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
+                        style: const TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 12),
                       ),
                     ],
                   ),
@@ -108,81 +114,6 @@ class RevenueChart extends StatelessWidget {
         ),
       )
     ];
-  }
-}
-
-class _RevenueFilter extends StatefulWidget {
-  const _RevenueFilter();
-
-  @override
-  State<_RevenueFilter> createState() => _RevenueFilterState();
-}
-
-class _RevenueFilterState extends State<_RevenueFilter> {
-  String type = "today";
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        _item(text: "Today", value: "today"),
-        _item(text: "Weekly", value: "weekly"),
-        _item(text: "Monthly", value: "monthly"),
-      ],
-    );
-  }
-
-  Widget _item({required String text, required String value}) {
-    return Material(
-      color: type == value ? AppTheme.primaryColor : Colors.grey[200],
-      borderRadius: type == value ? BorderRadius.circular(4) : null,
-      child: InkWell(
-        onTap: () => setState(() => type = value),
-        borderRadius: type == value ? BorderRadius.circular(4) : null,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 11,
-              color: type == value ? Colors.white : Colors.black38,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _RevenueDropdown extends StatefulWidget {
-  const _RevenueDropdown();
-
-  @override
-  State<_RevenueDropdown> createState() => _RevenueDropdownState();
-}
-
-class _RevenueDropdownState extends State<_RevenueDropdown> {
-  String value = "today";
-  @override
-  Widget build(BuildContext context) {
-    return CustomDropdownButton<String>(
-      value: value,
-      items: [
-        CustomDropdownMenuItem(
-          value: "today",
-          text: "Today",
-        ),
-        CustomDropdownMenuItem(
-          value: "weekly",
-          text: "Weekly",
-        ),
-        CustomDropdownMenuItem(
-          value: "monthly",
-          text: "Monthly",
-        ),
-      ],
-      onChanged: (value) => setState(() => this.value = value!),
-    );
   }
 }
 

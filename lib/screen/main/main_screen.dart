@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:insight_report/screen/main/main_cubit.dart';
-import 'package:insight_report/screen/main/screen_state.dart';
+import 'package:insight_report/screen/main/cubit/main_cubit.dart';
+import 'package:insight_report/screen/main/cubit/screen_state.dart';
 import 'package:insight_report/screen/master_data/masterdata_screen.dart';
 import 'package:insight_report/utils/navigator.dart';
 

@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_web_frame/flutter_web_frame.dart';
-import 'package:insight_report/screen/main/main_cubit.dart';
-import 'package:insight_report/screen/main/main_screen.dart';
+import 'package:insight_report/screen/auth/auth_screen.dart';
+import 'package:insight_report/screen/main/cubit/main_cubit.dart';
 import 'package:insight_report/utils/app_theme.dart';
 
 void main() {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
-            home: const MainScreen(),
+            home: const AuthScreen(),
           );
         },
       ),

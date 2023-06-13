@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../main/screen_state.dart';
+import '../../main/cubit/screen_state.dart';
 import '../report_screen.dart';
 
 class ReportScreenState extends ScreenState {

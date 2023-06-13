@@ -70,8 +70,8 @@ class NewCustomerChart extends StatelessWidget {
       ChartSampleData(x: 'Apr', y: 18, secondSeriesYValue: 8, thirdSeriesYValue: 16),
       ChartSampleData(x: 'May', y: 8, secondSeriesYValue: 5, thirdSeriesYValue: 23),
       ChartSampleData(x: 'Jun', y: 12, secondSeriesYValue: 5, thirdSeriesYValue: 6),
-      ChartSampleData(x: 'Jul', y: 12, secondSeriesYValue: 22, thirdSeriesYValue: 20),
-      ChartSampleData(x: 'Aug', y: 16, secondSeriesYValue: 20, thirdSeriesYValue: 7),
+      // ChartSampleData(x: 'Jul', y: 12, secondSeriesYValue: 22, thirdSeriesYValue: 20),
+      // ChartSampleData(x: 'Aug', y: 16, secondSeriesYValue: 20, thirdSeriesYValue: 7),
     ];
     return <ColumnSeries<ChartSampleData, String>>[
       ColumnSeries<ChartSampleData, String>(

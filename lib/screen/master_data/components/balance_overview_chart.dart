@@ -1,10 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:insight_report/model/chart_sample_data.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../model/chart_sample_data.dart';
 import '../../../utils/app_theme.dart';
 import '../../../utils/utils.dart';
+import '../../../widgets/custom_chart_filter.dart';
 
 class BalanceOverviewChart extends StatelessWidget {
   const BalanceOverviewChart({
@@ -17,14 +20,19 @@ class BalanceOverviewChart extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              const Text(
                 "Balance Overview",
                 style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
               ),
-              _BalanceOverviewDropdown(),
+              CustomChartFilter(
+                items: const ["Weekly", "Monthly", "Yearly"],
+                onChanged: (value) {
+                  log("Balance overview filter : $value");
+                },
+              ),
             ],
           ),
           const SizedBox(height: 8),
@@ -146,50 +154,6 @@ class BalanceOverviewChart extends StatelessWidget {
           ],
         ),
       ],
-    );
-  }
-}
-
-class _BalanceOverviewDropdown extends StatefulWidget {
-  const _BalanceOverviewDropdown();
-
-  @override
-  State<_BalanceOverviewDropdown> createState() => _BalanceOverviewDropdownState();
-}
-
-class _BalanceOverviewDropdownState extends State<_BalanceOverviewDropdown> {
-  String type = "year";
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(4),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton(
-          value: type,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
-          isDense: true,
-          items: const [
-            DropdownMenuItem(
-              value: "year",
-              child: Text("Year   "),
-            ),
-            DropdownMenuItem(
-              value: "month",
-              child: Text("Month   "),
-            ),
-            DropdownMenuItem(
-              value: "day",
-              child: Text("Day   "),
-            ),
-          ],
-          onChanged: (value) => setState(() => type = value!),
-        ),
-      ),
     );
   }
 }

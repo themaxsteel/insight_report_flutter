@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insight_report/screen/dashboard/dashboard_screen.dart';
-import 'package:insight_report/screen/main/screen_state.dart';
+import 'package:insight_report/screen/main/cubit/screen_state.dart';
 
 class DashboardScreenState extends ScreenState {
   @override
